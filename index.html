@@ -1,1 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <style>
+        .slider {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+        }
 
+        .slide {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 300%;
+            height: 100%;
+        }
+
+        .slide img {
+            float: left;
+            width: 33.333%;
+            height: 100%;
+        }
+
+        .slider-buttons {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            height: 50px;
+        }
+
+        .prev-button, .next-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: transparent;
+            border: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .prev-button {
+            left: 0;
+        }
+
+        .next-button {
+            right: 0;
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: white;
+            opacity: 0.5;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            opacity: 1;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="slider">
+    <div class="slide">
+        <img src="https://via.placeholder.com/600x400?text=Slide+1" alt="">
+        <img src="https://via.placeholder.com/600x400?text=Slide+2" alt="">
+        <img src="https://via.placeholder.com/600x400?text=Slide+3" alt="">
+    </div>
+    <div class="slider-buttons">
+        <button class="prev-button">&#8249;</button>
+        <button class="next-button">&#8250;</button>
+    </div>
+    <div class="slider-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+</div>
+
+
+<script>
+    // 获取轮播图的 DOM 元素和相关元素
+    var slider = document.querySelector('.slider');
+    var slides = slider.querySelectorAll('.slide');
+    var prevBtn = slider.querySelector('.prev');
+    var nextBtn = slider.querySelector('.next');
+    var index = 0;
+    var timer;
+
+    // 自动播放轮播图
+    function autoPlay() {
+        timer = setInterval(function() {
+            index = (index + 1) % slides.length;
+            showSlide(index);
+        }, 3000);
+    }
+
+    // 显示指定的轮播图
+    function showSlide(idx) {
+        // 隐藏当前轮播图
+        slides[index].classList.remove('active');
+
+        // 显示指定轮播图
+        slides[idx].classList.add('active');
+
+        // 更新索引
+        index = idx;
+    }
+
+    // 给左右切换按钮绑定点击事件
+    prevBtn.addEventListener('click', function() {
+        // 显示上一张轮播图
+        var idx = index - 1;
+        if (idx < 0) {
+            idx = slides.length - 1;
+        }
+        showSlide(idx);
+    });
+
+    nextBtn.addEventListener('click', function() {
+        // 显示下一张轮播图
+        var idx = (index + 1) % slides.length;
+        showSlide(idx);
+    });
+
+    // 启动自动播放
+    autoPlay();
+
+</script>
+</body>
+</html>
