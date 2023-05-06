@@ -160,23 +160,27 @@
 
 <!--环境视频-->
 <div class="player">
-    <div class="playPauseBtn">
-        <div class="videoPlay-btn">
-            <img src="assets/images/playBtn.png" />
-        </div>
-        <div class="videoPause-btn">
-            <img src="assets/images/pauseBtn.png" />
-        </div>
-    </div>
-    <video src="https://s3-us-east-1.ossfiles.com/666666/%E7%BE%8E%E7%9B%AE%E9%87%8C/video/xuexiaohuanjing.mp4"></video>
+    <video id="myVideo" src="https://s3-us-east-1.ossfiles.com/666666/%E7%BE%8E%E7%9B%AE%E9%87%8C/video/xuexiaohuanjing.mp4"></video>
     <div class="VideoControls">
+        <div class="playPauseBtn">
+            <div class="videoPlay-btn">
+                <img src="assets/images/playBtn.png" />
+            </div>
+            <div class="videoPause-btn">
+                <img src="assets/images/pauseBtn.png" />
+            </div>
+        </div>
+        <div class="fullTheVideo">
+            <div id="fullscreenBtn">
+                <img src="assets/images/full.png" />
+            </div>
+        </div>
         <div class="videoProgress-bar">
             <div class="videoProgress"></div>
         </div>
     </div>
 </div>
 <!--环境视频 end -->
-
 
 <section class="container">
     <div class="row">
@@ -359,6 +363,35 @@
                 var progressWidth = video.currentTime / video.duration * 100;
                 videoProgress.style.width = progressWidth + '%';
             });
+        }
+    });
+
+    // 全屏切换
+    var video = document.getElementById('myVideo');
+    var fullscreenBtn = document.getElementById('fullscreenBtn');
+
+    // 切换全屏状态
+    function toggleFullscreen() {
+        if (document.fullscreenElement) {
+            document.exitFullscreen();
+            // fullscreenBtn.innerText = '全屏';
+        } else {
+            video.requestFullscreen();
+            // fullscreenBtn.innerText = '退出全屏';
+        }
+    }
+
+    // 绑定全屏切换按钮点击事件
+    fullscreenBtn.addEventListener('click', function() {
+        toggleFullscreen();
+    });
+
+    // 监听全屏状态变化
+    document.addEventListener('fullscreenchange', function() {
+        if (document.fullscreenElement) {
+            // fullscreenBtn.innerText = '退出全屏';
+        } else {
+            // fullscreenBtn.innerText = '全屏';
         }
     });
 
