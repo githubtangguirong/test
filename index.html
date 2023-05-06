@@ -1,105 +1,359 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>轮播图</title>
-    <style>
-        .slider {
-            position: relative;
-            width: 100%;
-            height: 400px;
-            overflow: hidden;
-        }
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <meta name="keywords" content="贵阳美目里中式美睫培训引领者！漫画款美睫图片,贵阳中式美睫,贵阳中式美睫培训学校,贵州中式美睫培训学校,贵阳哪里有中式美睫培训,贵阳有没有中式美睫培训,贵阳美睫培训哪家好,贵州美睫培训哪家好,贵州哪里可以学习中式美睫,贵州美睫培训多少钱,美目里中式美睫培训,贵阳贺加贝美睫培训,抖音同城美甲美睫,零基础学美睫,中式美睫收费,中式美睫难学吗,中式美睫新手学得会吗,漫画款美睫/睫毛,流梳款美睫/睫毛,齐梳款美睫/睫毛,Ins风眼线款美睫/睫毛,仿妆美睫/睫毛,仙女款美睫/睫毛,小红书美睫/睫毛,抖音美睫/睫毛" />
+      <meta name="description" content="贵阳美目里中式美睫培训引领者！漫画款美睫图片,贵阳中式美睫,贵阳中式美睫培训学校,贵州中式美睫培训学校,贵阳哪里有中式美睫培训,贵阳有没有中式美睫培训,贵阳美睫培训哪家好,贵州美睫培训哪家好,贵州哪里可以学习中式美睫,贵州美睫培训多少钱,美目里中式美睫培训,贵阳贺加贝美睫培训,抖音同城美甲美睫,零基础学美睫,中式美睫收费,中式美睫难学吗,中式美睫新手学得会吗,漫画款美睫/睫毛,流梳款美睫/睫毛,齐梳款美睫/睫毛,Ins风眼线款美睫/睫毛,仿妆美睫/睫毛,仙女款美睫/睫毛,小红书美睫/睫毛,抖音美睫/睫毛" />
+    
+      <title>关于-贵阳中式美睫培训 - 美目里中式美睫培训引领者！</title>
+      <!-- CSS -->
+      <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+      <link rel="stylesheet" type="text/css" href="assets/css/userstyle.css">
+      <!-- Animate -->
+      <link rel="stylesheet" type="text/css" href="assets/css/plugins/animate.min.css">
+      <!-- Bootstrap 5 -->
+      <link rel="stylesheet" type="text/css" href="assets/css/plugins/bootstrap.min.css">
+      <!-- Cube Portfolio -->
+      <link rel="stylesheet" type="text/css" href="assets/css/plugins/cubeportfolio.min.css">
+      <!-- Custom styles CSS -->
+      <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+      <!-- Favicon -->
+      <link rel="icon" type="image/png" href="assets/images/favicon.ico">
+      <style>
+          .biYeBody{
+              display: flex;
+              width: 100%;
+              height: 100%;
+          }
+          .slider {
+              position: relative;
+              width: 100%;
+              height: auto;
+          }
+          .slide {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: auto;
+              opacity: 0;
+              transition: opacity 0.5s ease;
+          }
+          .slide.active {
+              opacity: 1;
+          }
+          .prev, .next {
+              position: absolute;
+              top: 50%;
+              transform: translate(0 , -50%);
+              font-size: 30px;
+              font-weight: bold;
+              cursor: pointer;
+              background: #fff;
+              width: 40px;
+              height: 40px;
+              line-height: 40px;
+              text-align: center;
+          }
+          .prev {
+              left: 10px;
+          }
+          .next {
+              right: 10px;
+          }
+      </style>
+  </head>
+  <body>
 
-        .slide {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 300%;
-            height: 100%;
-        }
 
-        .slide img {
-            float: left;
-            width: 33.333%;
-            height: 100%;
-        }
+<!-- ADD THIS CLASS IF YOU WANT STICKY class="sticky"-->            
+<header>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
 
-        .slider-buttons {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 100%;
-            height: 50px;
-        }
+         <!-- logo -->
+         <div class="logo">
+             <a href="index.html">
+                 <img src="assets/images/logo.png" alt="贵阳中式美睫培训 -  美目里中式美睫培训引领者！" height="40" />
+                 <span class="logoTitle">中式美睫培训引领者！</span>
+             </a>
+         </div>
+         <!-- /logo -->
 
-        .prev-button, .next-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 50px;
-            height: 50px;
-            background: transparent;
-            border: none;
-            font-size: 24px;
-            color: white;
-            cursor: pointer;
-        }
+          <!-- navigation -->
+          <nav>
 
-        .prev-button {
-            left: 0;
-        }
+              <div id="rex_menu">
+                  <ul>
+                      <li>
+                          <a href="index.html">
+                              <span>首 页</span>
+                          </a>
+                      </li>
+                      <li>
+                          <a href="say.html">
+                              <span>学员评价</span>
+                          </a>
+                      </li>
+                      <li class="has-sub active">
+                          <a href="javascript:">
+                              <span>关 于</span>
+                          </a>
+                      </li>
+                  </ul>
+                  </li>
+              </div>
 
-        .next-button {
-            right: 0;
-        }
+          </nav>
+          <!-- /navigation -->
 
-        .slider-dots {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
 
-        .dot {
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: white;
-            opacity: 0.5;
-            margin: 0 10px;
-            cursor: pointer;
-        }
+       </div>
+     </div>
+  </div>
+</header>
 
-        .dot.active {
-            opacity: 1;
-        }
+<!-- 视频banner -->
+<video id="video-background" autoplay loop muted>
+    <source src="https://s3-us-east-1.ossfiles.com/666666/%E7%BE%8E%E7%9B%AE%E9%87%8C/video/aboutvideoBG.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
 
-    </style>
-</head>
-<body>
+<br><br>
 
-<div class="slider">
-    <div class="slide">
-        <img src="https://via.placeholder.com/600x400?text=Slide+1" alt="">
-        <img src="https://via.placeholder.com/600x400?text=Slide+2" alt="">
-        <img src="https://via.placeholder.com/600x400?text=Slide+3" alt="">
+<section class="container">
+    <h2 class="t_c">时尚校园环境</h2>
+    <p class="t_c">时尚的校园环境，让学员们沉浸在艺术的氛围，充分激发学员的想象力，和对艺术创作的天赋。</p>
+    <br><br>
+    <div class="row bottom-ico">
+        <div class="col-md-3">
+            <p class="bottomIcoImg"><img src="assets/images/bottom/jingzi.png" alt="贵阳美目里中式美睫培训" /></p>
+            <p><b>阳光色化妆练习镜台</b></p>
+            <p><span>专业定制”阳光色”化妆实操练习镜台，2800K色温与太阳光同步；练习时妆面颜色纯正，不偏色，保证练习的妆面与室外阳光下肉眼看到的效果相同。</span></p>
+        </div>
+        <div class="col-md-3">
+            <p class="bottomIcoImg"><img src="assets/images/bottom/daping.png" alt="贵阳美目里中式美睫培训" /></p>
+            <p><b>80寸高清视频教学</b></p>
+            <p><span>4K液晶电视，色彩还原更真实，80英寸超大屏视频直投教学，50倍光学放大超高清直投，比投影仪更清晰、更逼真，能看清楚老师每个手法操作细节。</span></p>
+        </div>
+        <div class="col-md-3">
+            <p class="bottomIcoImg"><img src="assets/images/bottom/yule.png" alt="贵阳美目里中式美睫培训" /></p>
+            <p><b>娱乐教学系统</b></p>
+            <p><span>全新娱乐教学系统，杜比5.1声道音响，能听清楚老师所讲的每一句话。学习之余，娱乐游戏穿插，专业级试听享受，劳逸结合，学习效果提升3倍！</span></p>
+        </div>
+        <div class="col-md-3">
+            <p class="bottomIcoImg"><img src="assets/images/bottom/jiaoshi.png" alt="贵阳美目里中式美睫培训" /></p>
+            <p><b>小班教室</b></p>
+            <p><span>拒绝大班制，30平米小班教室，人数更少，更多老师手把手辅导机会；艺术背门教室，提高学习兴趣，注意力更集中。</span></p>
+        </div>
     </div>
-    <div class="slider-buttons">
-        <button class="prev-button">&#8249;</button>
-        <button class="next-button">&#8250;</button>
+</section>
+
+<!--环境视频-->
+<div class="player">
+    <div class="playPauseBtn">
+        <div class="videoPlay-btn">
+            <img src="assets/images/playBtn.png" />
+        </div>
+        <div class="videoPause-btn">
+            <img src="assets/images/pauseBtn.png" />
+        </div>
     </div>
-    <div class="slider-dots">
-        <span class="dot active"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
+    <video src="https://s3-us-east-1.ossfiles.com/666666/%E7%BE%8E%E7%9B%AE%E9%87%8C/video/xuexiaohuanjing.mp4"></video>
+    <div class="VideoControls">
+        <div class="videoProgress-bar">
+            <div class="videoProgress"></div>
+        </div>
     </div>
 </div>
+<!--环境视频 end -->
 
+
+<section class="container">
+    <div class="row">
+    <h2 class="t_c">历届毕业学员</h2>
+    <p class="t_c">美目里中式美睫历届毕业学员合影</p>
+        <div class="col-md-12">
+
+            <div class="slider">
+                <img src="https://s3-us-east-1.ossfiles.com/666666/%E7%BE%8E%E7%9B%AE%E9%87%8C/JPG/mjby01.jpg" class="slide active">
+                <img src="https://s3-us-east-1.ossfiles.com/666666/%E7%BE%8E%E7%9B%AE%E9%87%8C/JPG/mjby02.jpg" class="slide">
+                <img src="https://s3-us-east-1.ossfiles.com/666666/%E7%BE%8E%E7%9B%AE%E9%87%8C/JPG/mjby03.jpg" class="slide">
+                <div class="prev">&#8249;</div>
+                <div class="next">&#8250;</div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<hr>
+<br><br>
+
+<section class="container">
+    <h2 class="t_c">OMO教学模式</h2>
+    <p class="t_c">针对80-90后学员定制的教学模式，参与式学习，开心好玩，OMO教学模式，让你学习效果提升3倍！</p>
+    <br><br>
+    <div class="row bottom-ico">
+        <div class="col-md-3">
+            <p class="bottomIcoImg"><img src="assets/images/bottom/cysjx.png" alt="贵阳美目里中式美睫培训" /></p>
+            <p><b>参与式教学法</b></p>
+            <p><span>全程参与式教学法，采用案例分析、分组讨论、技术大PK等核心方法，全面塑造化妆行业精英。</span></p>
+        </div>
+        <div class="col-md-3">
+            <p class="bottomIcoImg"><img src="assets/images/bottom/xhwz.png" alt="贵阳美目里中式美睫培训" /></p>
+            <p><b>学会为止</b></p>
+            <p><span>一次交费，学会为止，如果不会，免费再学，不限学时，直到学会为止，学不会才是奇迹。</span></p>
+        </div>
+        <div class="col-md-3">
+            <p class="bottomIcoImg"><img src="assets/images/bottom/scww.png" alt="贵阳美目里中式美睫培训" /></p>
+            <p><b>实操为王</b></p>
+            <p><span>20%理论80%实操，每天5小时，高强度真人一对一实操练习，实战为王，老师手把手辅导。</span></p>
+        </div>
+        <div class="col-md-3">
+            <p class="bottomIcoImg"><img src="assets/images/bottom/mffx.png" alt="贵阳美目里中式美睫培训" /></p>
+            <p><b>免费复训</b></p>
+            <p><span>每年技术更新，课程快速迭代，每年更新30%，一次投资学习，免费复训新技术。</span></p>
+        </div>
+    </div>
+</section>
+
+<br><br>
+
+<div class="contactBG">
+    <p>现在报名优惠立减1000！可致电 <b>195 2283 3913</b> 免费咨询</p>
+</div>
+<br><br>
+
+<section class="container">
+    <div class="row contactMe">
+        <div class="col-md-3">
+            <p>
+                <a href="https://v.douyin.com/DaTUrXd/" target="_blank">
+                    <img src="assets/images/bottom/douyin.png" alt="贵阳美目里中式美睫培训" />
+                    <span>抖音主页</span>
+                </a>
+            </p>
+        </div>
+        <div class="col-md-3">
+            <p>
+                <a href="https://v.kuaishou.com/QtNwfq" target="_blank">
+                    <img src="assets/images/bottom/kuaishou.png" alt="贵阳美目里中式美睫培训" />
+                    <span>快手主页</span>
+                </a>
+            </p>
+        </div>
+        <div class="col-md-3">
+            <p>
+                <a href="https://www.xiaohongshu.com/user/profile/62a8708c000000001b024159" target="_blank">
+                    <img src="assets/images/bottom/xiaohongshu.png" alt="贵阳美目里中式美睫培训" />
+                    <span>小红书主页</span>
+                </a>
+            </p>
+        </div>
+        <div class="col-md-3">
+            <p>
+                <a href="tel:19522833913" target="_blank">
+                    <img src="assets/images/bottom/dianhua.png" alt="贵阳美目里中式美睫培训" />
+                    <span>电话咨询</span>
+                </a>
+            </p>
+        </div>
+</section>
+
+<br><br>
+
+<!-- footer -->
+<footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+      <!-- copyright -->
+      <div class="copyright">
+        美目里中式美睫培训 © 2023 艺道教育集团 & 贵阳贺加贝化妆美甲学校 copy right.
+      </div>
+      <!-- /copyright -->
+
+     </div>
+    </div>
+  </div>
+<a id="freeAsk" href="https://wj.qq.com/s2/12250769/9d51/" target="_blank" title="免费咨询贵阳美目里中式美睫培训">
+    <img src="assets/images/consultation.png" style="width: 30px;height: 30px;">
+</a>
+    <a id="back-to-top" href="javascript:" target="_blank" title="免费咨询贵阳美目里中式美睫培训">
+    <img src="assets/images/totop.png" style="width: 30px;height: 30px;">
+</a>
+</footer>
+<!-- /footer-->
+
+<script src="assets/js/plugins/jquery-1.12.4.min.js"></script>
+<!-- Slick Nav -->
+<script src="assets/js/plugins/slick-nav.js"></script>
+<!-- Custom -->
+<script src="assets/js/main.js"></script>
 
 <script>
-    // 获取轮播图的 DOM 元素和相关元素
+document.addEventListener('DOMContentLoaded', function() {
+    // 获取所有视频播放器
+    var players = document.querySelectorAll('.player');
+    var currentVideo = null; // 记录当前正在播放的视频
+
+    // 循环遍历每个播放器
+    for (let i = 0; i < players.length; i++) {
+        let player = players[i];
+        let video = player.querySelector('video');
+        let playBtn = player.querySelector('.videoPlay-btn');
+        let pauseBtn = player.querySelector('.videoPause-btn');
+        let videoProgressBar = player.querySelector('.videoProgress-bar');
+        let videoProgress = player.querySelector('.videoProgress');
+
+        // 给视频容器绑定点击事件
+        player.addEventListener('click', function() {
+            if (video.paused) {
+                // 如果当前没有视频在播放，直接播放该视频
+                if (!currentVideo) {
+                    currentVideo = video;
+                } else {
+                    // 如果已经有视频在播放，暂停其他视频并播放当前视频
+                    currentVideo.pause();
+                    currentVideo.parentElement.querySelector('.videoPlay-btn').style.display = 'inline-block';
+                    currentVideo.parentElement.querySelector('.videoPause-btn').style.display = 'none';
+                    currentVideo = video;
+                }
+
+                video.play();
+                playBtn.style.display = 'none';
+                pauseBtn.style.display = 'inline-block';
+            } else {
+                // 点击暂停按钮后，暂停当前视频
+                video.pause();
+                playBtn.style.display = 'inline-block';
+                pauseBtn.style.display = 'none';
+            }
+        });
+
+        // 给进度条容器绑定点击事件
+        videoProgressBar.addEventListener('click', function(event) {
+            // 计算进度条当前的宽度，并设置对应的视频播放时间
+            var progressWidth = event.offsetX / videoProgressBar.offsetWidth * 100;
+            videoProgress.style.width = progressWidth + '%';
+            video.currentTime = video.duration * progressWidth / 100;
+        });
+
+        // 监听视频播放时间更新事件
+        video.addEventListener('timeupdate', function() {
+            // 根据视频当前的播放时间计算进度条的宽度
+            var progressWidth = video.currentTime / video.duration * 100;
+            videoProgress.style.width = progressWidth + '%';
+        });
+    }
+});
+
+</script>
+<script>
     var slider = document.querySelector('.slider');
     var slides = slider.querySelectorAll('.slide');
     var prevBtn = slider.querySelector('.prev');
@@ -145,7 +399,26 @@
 
     // 启动自动播放
     autoPlay();
-
 </script>
+<script>
+    // 点击返回顶部
+    window.addEventListener('scroll', function() {
+        var backToTopButton = document.getElementById('back-to-top');
+        var freeAskButton = document.getElementById('freeAsk');
+        if (window.scrollY > 300) {
+            backToTopButton.style.display = 'block';
+            freeAskButton.style.display = 'block';
+        } else {
+            backToTopButton.style.display = 'none';
+            freeAskButton.style.display = 'none';
+        }
+    });
+    var backToTopButton = document.getElementById('back-to-top');
+    backToTopButton.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
+
+
 </body>
 </html>
